@@ -1,0 +1,90 @@
+.sub-switch-wrapper {
+    width: 222px;
+    height: 30px;
+    border: 1px solid #f0ad4e;
+    border-radius: 3px;
+    position: relative;
+    text-align: center;
+    padding-top: 3px;
+}
+
+.sub-switch-left {
+    width: 22px;
+    height: 28px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-right: 1px solid #e5e5e5;
+    line-height: 25px;
+    cursor: pointer;
+    padding-right: 1px;
+}
+
+.sub-switch-right {
+    width: 22px;
+    height: 28px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-left: 1px solid #e5e5e5;
+    line-height: 25px;
+    cursor: pointer;
+    padding-right: 1px;
+}
+
+.sub-switch-left .sub-switch-caret {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+}
+
+.sub-switch-right .sub-switch-caret {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+}
+
+.sub-switch-wrapper input {
+    border: none;
+}
+
+.sub-switch-wrapper .ui-autocomplete {
+    top: 31px !important;
+    left: 0 !important;
+    width: 221px;
+    max-height: 180px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.sub-switch-wrapper .ui-state-focus {
+    background-color: #e4f2ff;
+}
+
+.sub-switch-wrapper input:focus {
+    outline: 0;
+}
+
+.sub-switch-noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently not supported by any browser */
+}
+
+.sub-switch-caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid \9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>科目切换UI</title>
+    <link href="../libs/jquery-ui/themes/base/jquery-ui.min.css" type="text/css" rel="stylesheet">
+    <link href="../libs/bootstrap/bootstrap.css" type="text/css" rel="stylesheet">
+    <link href="../src/css/subjectSwitching.css" type="text/css" rel="stylesheet">
+    <script src="../libs/jquery.min.js"></script>
+    <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../libs/bootstrap/bootstrap.js"></script>
+    <script src="../src/js/subjectSwitching.js"></script>
+</head>
+<body>
+
+    <div class="sub-switch-wrapper sub-switch-noselect ui-front" style="margin: 40px auto">
+        <div class="sub-switch-left">
+            <span class="sub-switch-caret sub-switch-noselect"></span>
+        </div>
+        <input type="text" id="t">
+        <div class="sub-switch-right">
+            <span class="sub-switch-caret sub-switch-noselect"></span>
+        </div>
+    </div>
+
+    <script>
+        $("#t").autocomplete({
+            delay: 0,
+            minLength: 0,
+            autoFocus: true,
+            source: ["1100 科目A", "1101 科目B", "1102 科目C", "1100 科目A", "1101 科目B", "1102 科目C", "1102 科目C", "1102 科目X"],
+            focus: function() {
+                return false;
+            }
+        });
+    </script>
+</body>
+</html>
