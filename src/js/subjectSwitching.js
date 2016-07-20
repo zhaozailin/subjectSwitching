@@ -50,6 +50,9 @@ var subjectSwitching = (function() {
         // 监听input点击
         $input.click(function() {
             $input.select();
+
+            // 执行搜索
+            $input.autocomplete("search", "");
         });
 
         return dataModel;

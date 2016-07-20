@@ -75,6 +75,7 @@
 
 .sub-switch-wrapper .ui-state-focus {
     background-color: #e4f2ff;
+    border: 1px solid #fff !important;
 }
 
 .sub-switch-wrapper input:focus {
