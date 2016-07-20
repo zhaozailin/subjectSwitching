@@ -29,6 +29,10 @@ var subjectSwitching = (function() {
             select: function(event, ui) {
                 dataModel.id = ui.item.id;
                 dataModel.code = ui.item.code;
+
+                // 每次选择之后重新初始化左右按钮状态
+                _initLeftRightAfterSelect(dataModel, list, $obj);
+
                 return ui.item.text;
             }
         });
@@ -49,6 +53,28 @@ var subjectSwitching = (function() {
         });
 
         return dataModel;
+    };
+
+    // 每次选择之后重新初始化左右按钮状态
+    var _initLeftRightAfterSelect = function(dataModel, list, $obj) {
+        var $left = $obj.children("div.sub-switch-left");
+        var $right = $obj.children("div.sub-switch-right");
+
+        // 选择的是第一条数据
+        if (list[0].id === dataModel.id) {
+            $left.addClass("sub-switch-disabled");
+        }
+        else {
+            $left.removeClass("sub-switch-disabled");
+        }
+
+        // 选择的是最后一条数据
+        if (list[list.length - 1].id === dataModel.id) {
+            $right.addClass("sub-switch-disabled");
+        }
+        else {
+            $right.removeClass("sub-switch-disabled");
+        }
     };
 
     // 初始化数据模型、UI状态
