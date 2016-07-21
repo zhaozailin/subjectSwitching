@@ -37,7 +37,11 @@
 }
 
 .sub-switch-right:hover {
-    background-color: #fcf3df;
+     background-color: #def4f9;
+}
+
+.sub-switch-left:hover {
+    background-color: #def4f9;
 }
 
 .sub-switch-left .sub-switch-caret {
@@ -56,6 +60,7 @@
 
 .sub-switch-wrapper input {
     border: none;
+    color: #333;
 }
 
 .sub-switch-wrapper .ui-autocomplete {
@@ -69,8 +74,16 @@
 }
 
 .sub-switch-disabled {
-    background-color: #eee;
+    background-color: #e6e6e6;
     cursor: default;
+}
+
+.sub-switch-disabled:hover {
+    background-color: #e6e6e6;
+}
+
+.sub-switch-disabled .sub-switch-caret {
+    color: #999;
 }
 
 .sub-switch-wrapper .ui-state-focus {
@@ -92,6 +105,7 @@
 }
 
 .sub-switch-caret {
+    color: #666;
     display: inline-block;
     width: 0;
     height: 0;
