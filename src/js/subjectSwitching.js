@@ -33,6 +33,9 @@ var subjectSwitching = (function() {
                 // 每次选择之后重新初始化左右按钮状态
                 _initLeftRightAfterSelect(dataModel, list, $obj);
 
+                // 触发select事件
+                $(dataModel).trigger("select");
+
                 return ui.item.text;
             }
         });
@@ -55,7 +58,7 @@ var subjectSwitching = (function() {
             $input.autocomplete("search", "");
         });
 
-        return dataModel;
+        return $(dataModel);
     };
 
     // 每次选择之后重新初始化左右按钮状态
@@ -137,6 +140,9 @@ var subjectSwitching = (function() {
         if (idx === 1) {
             $left.addClass("sub-switch-disabled");
         }
+
+        // 触发select事件
+        $(dataModel).trigger("select");
     };
 
     // 切换下一个
@@ -169,6 +175,9 @@ var subjectSwitching = (function() {
         if (idx === list.length - 2) {
             $right.addClass("sub-switch-disabled");
         }
+
+        // 触发select事件
+        $(dataModel).trigger("select");
     };
 
     return {
