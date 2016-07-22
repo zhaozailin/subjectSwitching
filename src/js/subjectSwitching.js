@@ -180,7 +180,13 @@ var subjectSwitching = (function() {
         $(dataModel).trigger("select");
     };
 
+    // 获取数据模型
+    var getModel = function($model) {
+        return $model[0];
+    };
+
     return {
-        initUI: initUI
+        initUI: initUI,
+        getModel: getModel
     };
 })();
