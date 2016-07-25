@@ -100,6 +100,9 @@ var subjectSwitching = (function() {
         if (list.length <= 1) {
             $obj.children("div.sub-switch-right").addClass("sub-switch-disabled");
         }
+        else {
+            $obj.children("div.sub-switch-right").removeClass("sub-switch-disabled");
+        }
     };
 
     // 通过关键字过滤
