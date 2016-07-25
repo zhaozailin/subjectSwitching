@@ -93,8 +93,8 @@ var subjectSwitching = (function() {
             $input.val(list[0].text);
         }
 
-        // 没有数据时，禁用右按钮
-        else {
+        // 没有数据 || 只有一条数据时，禁用右按钮
+        if (list.length <= 1) {
             $obj.children("div.sub-switch-right").addClass("sub-switch-disabled");
         }
     };
