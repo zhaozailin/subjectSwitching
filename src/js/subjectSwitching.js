@@ -93,6 +93,9 @@ var subjectSwitching = (function() {
             $input.val(list[0].text);
         }
 
+        // 默认禁用左按钮
+        $obj.children("div.sub-switch-left").addClass("sub-switch-disabled");
+
         // 没有数据 || 只有一条数据时，禁用右按钮
         if (list.length <= 1) {
             $obj.children("div.sub-switch-right").addClass("sub-switch-disabled");
