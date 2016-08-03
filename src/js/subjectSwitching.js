@@ -7,10 +7,7 @@ var subjectSwitching = (function() {
     var initUI = function($obj, list) {
 
         // 存储数据状态的对象
-        var dataModel = {
-            id: "",
-            code: ""
-        };
+        var dataModel = {};
 
         // 初始化数据模型、UI状态
         _initDataUI(dataModel, list, $obj);
@@ -91,8 +88,11 @@ var subjectSwitching = (function() {
         var $input = $obj.children("input");
 
         if (list.length > 0) {
-            dataModel.id = list[0].id;
-            dataModel.code = list[0].code;
+            for (var key in list[0]) {
+                if (list[0].hasOwnProperty(key)) {
+                    dataModel[key] = list[0][key];
+                }
+            }
             $input.val(list[0].text);
         }
 
@@ -136,8 +136,11 @@ var subjectSwitching = (function() {
         }
 
         var nextModal = list[idx - 1];
-        dataModel.id = nextModal.id;
-        dataModel.code = nextModal.code;
+        for (var key in nextModal) {
+            if (nextModal.hasOwnProperty(key)) {
+                dataModel[key] = nextModal[key];
+            }
+        }
 
         // 设置dom
         $obj.children("input").val(nextModal.text);
@@ -171,8 +174,11 @@ var subjectSwitching = (function() {
         }
 
         var nextModal = list[idx + 1];
-        dataModel.id = nextModal.id;
-        dataModel.code = nextModal.code;
+        for (var key in nextModal) {
+            if (nextModal.hasOwnProperty(key)) {
+                dataModel[key] = nextModal[key];
+            }
+        }
 
         // 设置dom
         $obj.children("input").val(nextModal.text);
