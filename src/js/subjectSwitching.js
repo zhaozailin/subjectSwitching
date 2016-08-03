@@ -27,8 +27,11 @@ var subjectSwitching = (function() {
                 return false;
             },
             select: function(event, ui) {
-                dataModel.id = ui.item.id;
-                dataModel.code = ui.item.code;
+                for (var key in ui.item) {
+                    if (ui.item.hasOwnProperty(key)) {
+                        dataModel[key] = ui.item[key];
+                    }
+                }
 
                 // 每次选择之后重新初始化左右按钮状态
                 _initLeftRightAfterSelect(dataModel, list, $obj);
