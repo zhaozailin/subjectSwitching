@@ -95,6 +95,9 @@ var subjectSwitching = (function() {
             }
             $input.val(list[0].text);
         }
+        else {
+            $input.val("");
+        }
 
         // 默认禁用左按钮
         $obj.children("div.sub-switch-left").addClass("sub-switch-disabled");
