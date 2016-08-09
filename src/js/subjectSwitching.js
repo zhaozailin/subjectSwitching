@@ -116,7 +116,8 @@ var subjectSwitching = (function() {
         var newList = [];
         for (var i = 0; i < list.length; i++) {
             if (list[i].text.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
-                newList.push({id: list[i].id, code: list[i].code, value: list[i].text});
+                list[i].value = list[i].text;
+                newList.push(list[i]);
             }
         }
         return newList;
