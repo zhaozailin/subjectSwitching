@@ -4,13 +4,13 @@
 var subjectSwitching = (function() {
 
     // 初始化UI
-    var initUI = function($obj, list) {
+    var initUI = function($obj, list, targetId) {
 
         // 存储数据状态的对象
         var dataModel = {};
 
         // 初始化数据模型、UI状态
-        _initDataUI(dataModel, list, $obj);
+        _initDataUI(dataModel, list, $obj, targetId);
 
         var $input = $obj.children("input");
         $input.autocomplete({
@@ -84,26 +84,52 @@ var subjectSwitching = (function() {
     };
 
     // 初始化数据模型、UI状态
-    var _initDataUI = function(dataModel, list, $obj) {
+    var _initDataUI = function(dataModel, list, $obj, targetId) {
         var $input = $obj.children("input");
 
+        // 有数据
         if (list.length > 0) {
-            for (var key in list[0]) {
-                if (list[0].hasOwnProperty(key)) {
-                    dataModel[key] = list[0][key];
+
+            // 有targetId，则设置对应的元素
+            var targetObj = null;
+            if (targetId) {
+                for (var i = 0; i < list.length; i++) {
+                    if (list[i].id === targetId) {
+                        targetObj = list[i];
+                        break;
+                    }
                 }
             }
-            $input.val(list[0].text);
+
+            // 没有targetId，默认设置第一个元素
+            else {
+                targetObj = list[0];
+            }
+
+            // 设置dataModel值
+            for (var key in targetObj) {
+                if (targetObj.hasOwnProperty(key)) {
+                    dataModel[key] = targetObj[key];
+                }
+            }
+            $input.val(targetObj.text);
         }
+
+        // 无数据
         else {
             $input.val("");
         }
 
-        // 默认禁用左按钮
-        $obj.children("div.sub-switch-left").addClass("sub-switch-disabled");
+        // 无数据、没有指定元素、指定元素为第一个元素时，禁用左按钮
+        if (list.length === 0 || !targetId || targetId === list[0].id) {
+            $obj.children("div.sub-switch-left").addClass("sub-switch-disabled");
+        }
+        else {
+            $obj.children("div.sub-switch-left").removeClass("sub-switch-disabled");
+        }
 
-        // 没有数据 || 只有一条数据时，禁用右按钮
-        if (list.length <= 1) {
+        // 没有数据、只有一条数据、指定元素为最后一个元素时，禁用右按钮
+        if (list.length <= 1 || targetId === list[list.length - 1].id) {
             $obj.children("div.sub-switch-right").addClass("sub-switch-disabled");
         }
         else {
