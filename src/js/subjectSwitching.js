@@ -141,7 +141,7 @@ var subjectSwitching = (function() {
     var _filter = function(key, list) {
         var newList = [];
         for (var i = 0; i < list.length; i++) {
-            if (list[i].text.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+            if (list[i].text.toLowerCase().indexOf(key.toLowerCase()) === 0 || list[i].name.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
                 list[i].value = list[i].text;
                 newList.push(list[i]);
             }
